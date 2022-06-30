@@ -395,7 +395,7 @@ Module modMusicConverter
     End Sub
 
 
-    Public Function getNotes(controller As Byte, Track As clsTrack, Level As clsLevel) As List(Of clsNoteEntry)
+    Public Function getNotes(controller As Byte, Track As clsTrack, Level As clsLevel, HopoThreshold As Integer) As List(Of clsNoteEntry)
         Dim baseNote As Integer = Level.baseNote
         Dim mf As Midi.MidiFile = Track.mf
         Dim tempos As New List(Of clsTempoEntry)
@@ -522,7 +522,7 @@ Module modMusicConverter
                     If checkQ(nevTime, forceHOPOQ) Then
                         doHopo = True
                     Else
-                        If nevTime - lastGroup(0).Item2.AbsoluteTime <= mf.DeltaTicksPerQuarterNote / 3 Then
+                        If nevTime - lastGroup(0).Item2.AbsoluteTime <= HopoThreshold Then
                             If lastGroup.Count = 1 AndAlso nevGroup.Count = 1 AndAlso lastGroup(0).Item2.NoteNumber <> nevGroup(0).Item2.NoteNumber Then
                                 doHopo = True
                             End If
