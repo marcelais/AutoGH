@@ -69,7 +69,7 @@
       <Song Title="action">250</Song>
     </Hopo>
   </Game>
-  <Game Name="Rock Band II" Code="RB2" />
+  <Game Name="Rock Band II" Code="RB2">
     <DrumNotes>41230</DrumNotes>
     <Hopo>
       <Song Title="_Default">170</Song>

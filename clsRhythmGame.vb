@@ -46,7 +46,7 @@
             Dim nodeList As Xml.XmlNodeList
             nodeList = n.SelectNodes("*")
             For Each node As Xml.XmlNode In n.SelectNodes("Song")
-                hopoTrigger(node.Attributes("Title").Value) = CInt(node.Value)
+                hopoTrigger(node.Attributes("Title").Value) = CInt(node.InnerText)
             Next
         Else
             ' Nothing indicates the Guitar Hero default of a 1/12th node
