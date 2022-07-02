@@ -1,4 +1,5 @@
-﻿Imports NAudio
+﻿Imports System.Linq
+Imports NAudio
 'https://github.com/TheBoxyBear/ChartTools/blob/stable/docs/FileFormats/midi.md
 Friend Class clsNoteAction
     Implements IComparable(Of clsNoteAction)
@@ -523,8 +524,10 @@ Module modMusicConverter
                         doHopo = True
                     Else
                         If nevTime - lastGroup(0).Item2.AbsoluteTime <= HopoThreshold Then
-                            If lastGroup.Count = 1 AndAlso nevGroup.Count = 1 AndAlso lastGroup(0).Item2.NoteNumber <> nevGroup(0).Item2.NoteNumber Then
-                                doHopo = True
+                            If nevGroup.Count = 1 Then
+                                If Not lastGroup.Select(Function(x) x.Item2.NoteNumber).Contains(nevGroup(0).Item2.NoteNumber) Then
+                                    doHopo = True
+                                End If
                             End If
                         End If
                     End If
