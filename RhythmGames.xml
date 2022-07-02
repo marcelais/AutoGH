@@ -47,6 +47,7 @@
     <MinimumDuration>25</MinimumDuration>
   </Game>
   <Game Name="Rock Band" Code="RB">
+    <LoadTime>3500</LoadTime>
     <DrumNotes>41230</DrumNotes>
     <Hopo>
       <Song Title="_Default">170</Song>
